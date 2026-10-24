@@ -675,7 +675,7 @@ $("#submitMod").click(() => {
       moddercheckeror = true;
     }
   } else {
-    evalFromUrl(`../static/mods/${$("#modSelect")[0].value}_init.html`);
+    evalFromUrl(`../static/mods/${$("#modSelect")[0].value}_init.js`);
     diff_mod = true;
   }
   $("#modloaddiv")[0].style.display = "none";
@@ -2343,7 +2343,7 @@ function renderOptions(electionId, candId, runId) {
           // theorId = $("#modSelect")[0].value
 
           if (customMod === false) {
-            evalFromUrl(`../static/mods/${theorId}.html`, () => {
+            evalFromUrl(`../static/mods/${theorId}.js`, () => {
               tempFuncO(e);
             });
           } else {
@@ -2382,7 +2382,7 @@ function renderOptions(electionId, candId, runId) {
             tempFuncO(e);
           }
 
-          const endingUrl = `../static/mods/${theorId}_ending.html`;
+          const endingUrl = `../static/mods/${theorId}_ending.js`;
 
           fileExists(endingUrl)
             .then((exists) => {
