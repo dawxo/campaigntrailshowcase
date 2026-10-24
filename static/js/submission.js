@@ -278,14 +278,14 @@ function setUpCode2Submissions(
         .filter((y) => y.fields.candidate == x.pk)
         .map(
           (x) =>
-            `${displayYear}_${getLastNameFromPk(candidates, x.fields.candidate)}${getLastNameFromPk(candidates, x.fields.running_mate)}.html`,
+            `${displayYear}_${getLastNameFromPk(candidates, x.fields.candidate)}${getLastNameFromPk(candidates, x.fields.running_mate)}.js`,
         ),
     );
 
   code2Names = code2Names.flat();
 
   for (let name of code2Names) {
-    let id = name.split(".html")[0];
+    let id = name.split(".js")[0];
     code2Area.innerHTML += `
         <label style="font-weight:bold" for="${id}">${name}</label>
         <input onchange="checkAllPickers()" class="filePicker" type="file" id="${id}" name="${id}" accept="" />
@@ -322,9 +322,9 @@ async function submitMod() {
     if (filePicker.files[0]) {
       validFileCount++;
       data.append(
-        filePicker.name + ".html",
+        filePicker.name + ".js",
         filePicker.files[0],
-        filePicker.name + ".html",
+        filePicker.name + ".js",
       );
     }
   }

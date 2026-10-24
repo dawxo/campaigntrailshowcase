@@ -94,7 +94,7 @@
 <script src="../static/js/us-map-1.0.1/jquery.usmap.js"></script>
 <script src="../static/js/lib/pako.js"></script>
 <script>
-  fetch("../static/mods/MODLOADERFILE.html")
+  fetch("../static/mods/MODLOADERFILE.js")
     .then(res => res.text())
     .then(html => {
       document.getElementById("mod_select").innerHTML = html;
@@ -116,11 +116,11 @@
     const modValue = document.getElementById("mod_select").value;
     if (modValue && modValue !== "other") {
       try {
-        const modRes = await fetch(`../static/mods/${modValue}_init.html`);
+        const modRes = await fetch(`../static/mods/${modValue}_init.js`);
         const modCode = await modRes.text();
         eval(modCode);
         try {
-          const modCharRes = await fetch(`../static/mods/${modValue}_CharacterCharacter2.html`);
+          const modCharRes = await fetch(`../static/mods/${modValue}_CharacterCharacter2.js`);
           const modCharCode = await modCharRes.text();
           eval(modCharCode);
         } catch { }
